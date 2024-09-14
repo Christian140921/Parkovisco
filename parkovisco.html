@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkovisco - Gestión de Parqueo Residencial Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <header x-data="{ isOpen: false }" class="bg-white shadow-md fixed w-full z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-indigo-600 ml-2">Parkovisco</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-800 hover:text-indigo-600 transition duration-300">Inicio</a>
+                    <a href="#caracteristicas" class="text-gray-800 hover:text-indigo-600 transition duration-300">Características</a>
+                    <a href="#como-funciona" class="text-gray-800 hover:text-indigo-600 transition duration-300">Cómo Funciona</a>
+                    <a href="#precios" class="text-gray-800 hover:text-indigo-600 transition duration-300">Precios</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">Iniciar Sesión</a>
+                    <a href="#" class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Prueba Gratis</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="text-gray-500 hover:text-indigo-600 focus:outline-none focus:text-indigo-600">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path x-show="!isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+                            <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div x-show="isOpen" class="md:hidden mt-4">
+                <a href="#inicio" class="block py-2 text-gray-800 hover:text-indigo-600">Inicio</a>
+                <a href="#caracteristicas" class="block py-2 text-gray-800 hover:text-indigo-600">Características</a>
+                <a href="#como-funciona" class="block py-2 text-gray-800 hover:text-indigo-600">Cómo Funciona</a>
+                <a href="#precios" class="block py-2 text-gray-800 hover:text-indigo-600">Precios</a>
+                <a href="#" class="block py-2 text-indigo-600 hover:text-indigo-800">Iniciar Sesión</a>
+                <a href="#" class="block py-2 mt-2 bg-indigo-600 text-white px-4 rounded-full hover:bg-indigo-700 transition duration-300 text-center">Prueba Gratis</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="pt-32 pb-20 px-4" style="background-color: #152F40;">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-white mb-10 md:mb-0 md:pr-10">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-fade-in">Revoluciona la Gestión de Parqueo Residencial</h1>
+                    <p class="text-xl mb-8 text-fade-in" style="animation-delay: 0.2s;">Optimiza espacios, ahorra tiempo y mejora la experiencia de tus residentes con nuestra solución inteligente de parqueo.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#" class="bg-[#95B8BF] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#C9EBF2] transition duration-300 text-center text-fade-in" style="animation-delay: 0.4s;">Solicitar Demo</a>
+                        <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#C9EBF2] hover:text-[#152F40] transition duration-300 text-center text-fade-in" style="animation-delay: 0.6s;">Ver Video</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="logoquintanares.png" alt="ParkRes Dashboard" class="rounded-lg shadow-2xl ml-10 floating">
+                </div>
+            </div>
+        </section>
+
+        <section id="acerca" class="bg-gradient-to-r from-[#163840] to-[#61848C] py-16 slide-in">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-white mb-8">Acerca de Parkovisco</h2>
+                <p class="text-center text-gray-200 mb-6 max-w-2xl mx-auto">
+                    En Parkovisco, nuestra misión es revolucionar la gestión de parqueo residencial mediante soluciones inteligentes que optimizan el uso del espacio y mejoran la experiencia de los residentes.
+                </p>
+                <p class="text-center text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Creemos en la innovación y la tecnología como herramientas clave para facilitar la vida diaria de las personas. Nuestro equipo está comprometido en ofrecer un servicio excepcional y en adaptarse a las necesidades de nuestros usuarios.
+                </p>
+                <h3 class="text-3xl font-semibold text-white mt-8 mb-4 text-center">Nuestros Valores</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-[#C9EBF2] p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-lightbulb text-[#152F40] fa-2x mr-2"></i>
+                            <h4 class="text-xl font-semibold text-[#152F40]">Innovación</h4>
+                        </div>
+                        <p class="text-gray-600">Siempre buscando nuevas soluciones para mejorar la experiencia de nuestros usuarios.</p>
+                    </div>
+                    <div class="bg-[#C9EBF2] p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-handshake text-[#152F40] fa-2x mr-2"></i>
+                            <h4 class="text-xl font-semibold text-[#152F40]">Compromiso</h4>
+                        </div>
+                        <p class="text-gray-600">Dedicados a nuestros usuarios, asegurando su satisfacción en cada interacción.</p>
+                    </div>
+                    <div class="bg-[#C9EBF2] p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-user-shield text-[#152F40] fa-2x mr-2"></i>
+                            <h4 class="text-xl font-semibold text-[#152F40]">Transparencia</h4>
+                        </div>
+                        <p class="text-gray-600">Honestidad en todas nuestras interacciones, construyendo confianza con nuestros usuarios.</p>
+                    </div>
+                    <div class="bg-[#C9EBF2] p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-smile text-[#152F40] fa-2x mr-2"></i>
+                            <h4 class="text-xl font-semibold text-[#152F40]">Satisfacción del Cliente</h4>
+                        </div>
+                        <p class="text-gray-600">Tu felicidad es nuestra prioridad, siempre buscando mejorar tu experiencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Características Principales</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 slide-in">
+                        <svg class="h-16 w-16 text-indigo-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-4">Reservas en Línea</h3>
+                        <p class="text-gray-600">Sistema intuitivo para que los residentes reserven sus espacios de parqueo con anticipación.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 slide-in">
+                        <svg class="h-16 w-16 text-indigo-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-4">Análisis en Tiempo Real</h3>
+                        <p class="text-gray-600">Monitoreo y estadísticas detalladas sobre el uso de los parqueaderos para una gestión eficiente.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 slide-in">
+                        <svg class="h-16 w-16 text-indigo-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        <h3 class="text-2xl font-semibold mb-4">App Móvil</h3>
+                        <p class="text-gray-600">Acceso y gestión desde cualquier dispositivo para mayor comodidad de los usuarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="py-20 bg-gray-100" style="background-color: #C9EBF2;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">¿Cómo Funciona?</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <img src="carro.jpg" alt="Cómo funciona ParkRes" class="rounded-lg shadow-xl">
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-600 text-white">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-semibold mb-2">Registro de Usuarios</h3>
+                                    <p class="text-gray-600">Los residentes se registran en la plataforma con sus datos y vehículos.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-600 text-white">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-semibold mb-2">Reserva de Espacios</h3>
+                                    <p class="text-gray-600">Los usuarios pueden reservar espacios de parqueo según disponibilidad.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-600 text-white">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-semibold mb-2">Gestión Inteligente</h3>
+                                    <p class="text-gray-600">El sistema optimiza la asignación de espacios y genera reportes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Testimonios de Nuestros Usuarios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"La gestión de parqueo nunca ha sido tan fácil. ¡Recomiendo Parkovisco a todos!"</p>
+                        <h3 class="font-semibold">Juan Pérez</h3>
+                        <p class="text-gray-500">Residente</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"Excelente servicio y atención al cliente. ¡Estoy muy satisfecho!"</p>
+                        <h3 class="font-semibold">María López</h3>
+                        <p class="text-gray-500">Residente</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">"La app es muy intuitiva y me ha ahorrado mucho tiempo."</p>
+                        <h3 class="font-semibold">Carlos García</h3>
+                        <p class="text-gray-500">Residente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-indigo-600 text-white py-16" style="background-color: #152F40";>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-8">¿Listo para optimizar tu parqueadero?</h2>
+                <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-full text-lg hover:bg-gray-100 transition inline-block">Solicita una Demo</a>
+            </div>
+        </section>
+
+        <section id="precios" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Planes y Precios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Plan Básico</h3>
+                        <p class="text-gray-600 mb-4">Ideal para usuarios individuales.</p>
+                        <p class="text-3xl font-bold mb-4">$10/mes</p>
+                        <ul class="mb-4">
+                            <li class="mb-2">✔️ Reservas ilimitadas</li>
+                            <li class="mb-2">✔️ Soporte básico</li>
+                            <li class="mb-2">️ Acceso a la app móvil</li>
+                        </ul>
+                        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Seleccionar</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Plan Profesional</h3>
+                        <p class="text-gray-600 mb-4">Para pequeñas empresas y comunidades.</p>
+                        <p class="text-3xl font-bold mb-4">$25/mes</p>
+                        <ul class="mb-4">
+                            <li class="mb-2">✔️ Todas las características del Plan Básico</li>
+                            <li class="mb-2">✔️ Soporte prioritario</li>
+                            <li class="mb-2">✔️ Análisis en tiempo real</li>
+                        </ul>
+                        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Seleccionar</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Plan Empresarial</h3>
+                        <p class="text-gray-600 mb-4">Para grandes empresas y organizaciones.</p>
+                        <p class="text-3xl font-bold mb-4">$50/mes</p>
+                        <ul class="mb-4">
+                            <li class="mb-2">✔️ Todas las características del Plan Profesional</li>
+                            <li class="mb-2">✔️ Consultoría personalizada</li>
+                            <li class="mb-2">✔️ Integración con sistemas existentes</li>
+                        </ul>
+                        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition duration-300">Seleccionar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="bg-[#61848C] py-16 fade-in">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-white mb-8">Preguntas Frecuentes</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-lg mb-4">
+                        <div class="p-4 border-b">
+                            <h3 class="font-semibold text-lg">¿Cómo funciona Parkovisco?</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600">Parkovisco permite a los residentes reservar espacios de parqueo de manera fácil y rápida a través de nuestra plataforma. Simplemente regístrate, selecciona tu espacio y reserva.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg mb-4">
+                        <div class="p-4 border-b">
+                            <h3 class="font-semibold text-lg">¿Qué métodos de pago aceptan?</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600">Aceptamos diversas formas de pago, incluyendo tarjetas de crédito, débito y pagos en línea a través de plataformas seguras.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg mb-4">
+                        <div class="p-4 border-b">
+                            <h3 class="font-semibold text-lg">¿Puedo cancelar mi reserva?</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600">Sí, puedes cancelar tu reserva hasta 24 horas antes de la hora de inicio sin ningún cargo. Después de ese tiempo, se aplicarán políticas de cancelación.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg mb-4">
+                        <div class="p-4 border-b">
+                            <h3 class="font-semibold text-lg">¿Como puedo contactar al soporte?</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600">Puedes contactarnos a través de nuestro formulario de contacto en la página o enviándonos un correo electrónico a soporte@parkovisco.com.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-100 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">Suscríbete a Nuestro Boletín</h2>
+                <p class="text-gray-600 mb-8">Recibe las últimas noticias y actualizaciones directamente en tu bandeja de entrada.</p>
+                <form action="#" method="POST" class="flex justify-center">
+                    <input type="email" placeholder="Ingresa tu correo electrónico" required class="border border-gray-300 rounded-l-lg px-4 py-2 w-1/3">
+                    <button type="submit" class="bg-indigo-600 text-white rounded-r-lg px-4 py-2 hover:bg-indigo-700 transition duration-300">Suscribirse</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="contacto" class="bg-indigo-700 py-16" style="background-color: #61848C;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-white mb-8">Contáctanos</h2>
+                <p class="text-center text-gray-200 mb-12">Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nosotros.</p>
+                <form action="#" method="POST" class="max-w-lg mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+                    <div class="mb-4">
+                        <label for="nombre" class="block text-gray-300">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required class="border border-gray-600 rounded-lg px-4 py-2 w-full bg-gray-700 text-white">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-300">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required class="border border-gray-600 rounded-lg px-4 py-2 w-full bg-gray-700 text-white">
+                    </div>
+                    <div class="mb-4">
+                        <label for="mensaje" class="block text-gray-300">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" required class="border border-gray-600 rounded-lg px-4 py-2 w-full bg-gray-700 text-white"></textarea>
+                    </div>
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500 transition duration-300">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="text-lg font-bold">Parkovisco</h3>
+                        <p class="text-sm">© 2023 Parkovisco. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="flex space-x-6 mb-4 md:mb-0">
+                        <a href="#privacidad" class="hover:underline">Política de Privacidad</a>
+                        <a href="#terminos" class="hover:underline">Términos de Servicio</a>
+                        <a href="#contacto" class="hover:underline">Contacto</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/tu_pagina" target="_blank" class="hover:text-indigo-400">
+                            <i class="fab fa-facebook-f fa-lg"></i>
+                        </a>
+                        <a href="https://twitter.com/tu_pagina" target="_blank" class="hover:text-indigo-400">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tu_pagina" target="_blank" class="hover:text-indigo-400">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tu_pagina" target="_blank" class="hover:text-indigo-400">
+                            <i class="fab fa-linkedin-in fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function() {
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/YOUR_TAWK_TO_ID/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('.text-fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('text-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
